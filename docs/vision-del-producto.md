@@ -5,9 +5,9 @@
 
 **Autor:** Victor Manuel Flores Venegas
 
-**Fecha de la última versión:** 17/08/2026
+**Fecha de la última versión:** 27/08/2026
 
-**Repositorio:** https://github.com/Victorflores06/Proyecto-Ingenieria-de-Software
+**Repositorio:** https://github.com/Victorflores06/PLEAS-Tracker
 
 ---
 
@@ -55,48 +55,50 @@ El Estudiante desea que cualquier requisito completado (sea una actividad peque�
 
 ### Dentro del alcance
 
--
--
--
--
+- Muestra el avance de puntos de cada estudiante (Por semetre)
+- Muestra criterios de graduación y avance total de los estudiantes (TEA's, clases, proyecto, ADAI)
+- Registro de criterios de graduación de estudiantes
+- Registro de puntos de estudiantes 
+- Control de acceso segun el usario (Director o estudiante)
+- Generación de reportes de avance (Directores)
 
 ### Explícitamente fuera del alcance
 
--
--
--
+- No procesa pagos ni cuotas
+- No crea ni registra actividades
+- No valida avance automáticamente
 
 **Por qué queda fuera:**
 
-*Instrucción: para al menos una de las exclusiones, explica la razón. Puede ser tiempo, complejidad, o que no aporta al problema central.*
-
----
+La gestión de pagos se excluye porque el sistema se enfoca únicamente en el seguimiento del avance dentro de los programas, evitando desviar el objetivo central. Además, previene la alta complejidad técnica y los riesgos de seguridad asociados al manejo de transacciones financieras. Por último, evita la duplicidad de funciones, ya que la universidad ya cuenta con infraestructura centralizada para la cobranza institucional.
 
 ## 4. Tipo de sistema y restricciones
 
-*Instrucción: identifica de qué tipo es tu sistema y qué te obliga a garantizar ese tipo. Un sistema de información y un sistema crítico no se diseñan igual.*
-
 **Tipo de sistema:**
 
-*(De información · Embebido · Crítico · Web y SaaS · De datos y análisis)*
+Prototipado Rápido
 
 **Por qué es de ese tipo:**
 
+- Al ser un dashboard para alumnos y directores, necesitas retroalimentación constante sobre la interfaz y la usabilidad antes de codificar la lógica final.
+- Permite ajustar vistas y roles sobre la marcha sin el costo rígido de volver a documentar fases previas como exigen otros modelos.
+- Garantiza que los accesos y vistas diferenciados para estudiantes y directores se ajusten exactamente a las expectativas de cada perfil
+  
 **Atributos de calidad que impone:**
 
 | Atributo | Por qué importa en mi caso | Qué pasa si no se cumple |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+|Usabilidad |Es crucial que la interfaz sea intuitiva para que los alumnos y directores consulten y validen el avance de forma rápida sin requerir capacitación. |Los directores rechazarían la herramienta y volverían al uso de hojas de cálculo (Excel) y correos informales. |
+|Seguridad y Control de Acceso |Garantiza la privacidad de los datos académicos y restringe los permisos de modificación según el rol (Estudiante, Director de Programa, Director General). |Un alumno podría modificar su propio progreso o el de otros, invalidando la certeza del estado de graduación. |
+|Disponibilidad |El sistema debe estar activo en todo momento, especialmente en fechas cercanas a los cierres de periodo académico o graduaciones. |Se generarían problemas en la validación de requisitos y retrasos en la expedición de autorizaciones para graduarse |
 
 **Reglas de negocio que ya identifiqué:**
 
-*Instrucción: reglas que no son obvias desde fuera y que alguien que conoce el dominio tendría que explicarte. Si no encuentras ninguna, tu caso puede ser demasiado simple.*
 
-1.
-2.
-3.
+
+1. Jerarquía estricta de validación por rol: Una actividad completada por un alumno solo puede ser aprobada por el Director de su programa específico, pero el Director General tiene el permiso global para invalidar o sobreescribir aprobaciones en casos excepcionales.
+2. Cierre de periodos de actualización: Los alumnos pueden consultar su avance en cualquier momento, pero la carga o modificación de avance se bloquea automáticamente tantos días hábiles antes de la ceremonia oficial de graduación para congelar los expedientes.
+3. Prerrequisito de porcentaje para graduación: El sistema no permite marcar a un alumno con el estado de "Apto para Graduación" a menos que la suma de todas las actividades requeridas en su plan de diplomado alcance exactamente el 100% de validación.
 
 ---
 
