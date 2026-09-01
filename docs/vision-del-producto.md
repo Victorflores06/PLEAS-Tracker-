@@ -65,7 +65,7 @@ El Estudiante desea que cualquier requisito completado (sea una actividad peque�
 
 - No procesa pagos ni cuotas
 - No crea ni registra actividades
-- No valida avance automáticamente
+- No aplica políticas o protocolos automáticamente
 
 **Por qué queda fuera:**
 
@@ -77,7 +77,7 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 
 **Por qué es de ese tipo:**
 
-- Gestión de datos del negocio: Registra información de alumnos, avances, evidencias cargadas y aprobaciones de los directores.
+- Gestión de datos del diplomado: Registra información de alumnos, avances, evidencias cargadas y aprobaciones de los directores.
 - Requiere usabilidad (interfaz clara para alumnos y directores), integridad de datos (que no se pierdan los registros), trazabilidad (saber quién aprobó qué requisito y cuándo) y control de acceso (diferentes permisos según el rol).
 - La dificultad principal radica en traducir los criterios de aprobación que viven en la operación diaria de los directores hacia el sistema.
   
@@ -121,7 +121,7 @@ Además, la creación de prototipos rápidos dentro de cada sprint reduce el rie
 
 **Alternativa 2: Modelo V**
 
-*Por qué la descarté:* exige congelar los requisitos desde el inicio para diseñar planes de pruebas formales, lo que resulta demasiado rígido para este caso.Como el proyecto requiere validar prototipos del dashboard con directores y alumnos, este modelo dificultaría adaptar la interfaz sobre la marcha. Además, al dejar las pruebas con usuarios para las fases finales, se corre el riesgo de detectar fallos de usabilidad cuando corregirlos ya es muy costoso.
+*Por qué la descarté:* exige congelar los requisitos desde el inicio para diseñar planes de pruebas formales, lo que resulta demasiado rígido para este caso. Como el proyecto requiere validar prototipos del dashboard con directores y alumnos, este modelo dificultaría adaptar la interfaz sobre la marcha. Además, al dejar las pruebas con usuarios para las fases finales, se corre el riesgo de detectar fallos de usabilidad cuando corregirlos ya es muy costoso.
 
 ---
 
