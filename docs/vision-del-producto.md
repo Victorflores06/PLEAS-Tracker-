@@ -103,11 +103,11 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 
 ## 5. Ciclo de vida elegido
 
-**Modelo elegido: Ágil / Scrum (con enfoque de Prototipado Rápido)**  
+**Modelo elegido: Ágil con enfoque de Prototipado Rápido**  
 
 **Por qué le conviene a este proyecto:**
 
-El desarrollo de PLEAS Tracker se beneficia de una metodología Ágil con Scrum combinada con Prototipado Rápido, ya que la naturaleza del proyecto requiere validar interfaces y flujos con usuarios reales antes de congelar la arquitectura final.
+El desarrollo de PLEAS Tracker se beneficia de una metodología Ágil combinada con Prototipado Rápido, ya que la naturaleza del proyecto requiere validar interfaces y flujos con usuarios reales antes de congelar la arquitectura final.
 
 Aunque los requisitos iniciales están definidos, al tratarse de una plataforma universitaria basada en roles (estudiantes y directores), surgirán ajustes constantes en la usabilidad, el diseño del dashboard y los permisos de acceso. Trabajar en iteraciones cortas (sprints) aprovecha la disponibilidad de los alumnos y directores para realizar revisiones periódicas, permitiendo adaptar las vistas y flujos de trabajo sobre la marcha sin el costo rígido de redocumentar etapas anteriores.
 
