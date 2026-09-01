@@ -72,7 +72,7 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 
 ## 4. Tipo de sistema y restricciones
 
-**Tipo de sistema: De información**
+**Tipo de sistema: De información y software a la medida**
 
 **Por qué es de ese tipo:**
 
