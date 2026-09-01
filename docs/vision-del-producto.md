@@ -51,10 +51,9 @@ El Estudiante desea que cualquier requisito completado (sea una actividad peque�
 
 ## 3. Alcance
 
-
 ### Dentro del alcance
 
-- Muestra el avance de puntos de cada estudiante (Por semetre)
+- Muestra el avance de puntos de cada estudiante (Por semestre)
 - Muestra criterios de graduación y avance total de los estudiantes (TEA's, clases, proyecto, ADAI)
 - Registro de criterios de graduación de estudiantes
 - Registro de puntos de estudiantes 
@@ -78,7 +77,9 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 **Por qué es de ese tipo:**
 
 - Gestión de datos del diplomado: Registra información de alumnos, avances, evidencias cargadas y aprobaciones de los directores.
+  
 - Requiere usabilidad (interfaz clara para alumnos y directores), integridad de datos (que no se pierdan los registros), trazabilidad (saber quién aprobó qué requisito y cuándo) y control de acceso (diferentes permisos según el rol).
+  
 - La dificultad principal radica en traducir los criterios de aprobación que viven en la operación diaria de los directores hacia el sistema.
   
 **Atributos de calidad que impone:**
@@ -90,7 +91,6 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 |Disponibilidad |El sistema debe estar activo en todo momento, especialmente en fechas cercanas a los cierres de periodo académico o graduaciones. |Se generarían problemas en la validación de requisitos y retrasos en la expedición de autorizaciones para graduarse |
 
 **Reglas de negocio que ya identifiqué:**
-
 
 
 - **1. Jerarquía estricta de validación por rol:** Una actividad completada por un alumno solo puede ser aprobada por el Director de su programa específico, pero el Director General tiene el permiso global para invalidar o sobreescribir aprobaciones en casos excepcionales.
@@ -129,13 +129,13 @@ Además, la creación de prototipos rápidos dentro de cada sprint reduce el rie
 
 Reviso que el documento cumpla lo siguiente:
 
-- [ ] La descripción del apartado 1 se entiende sin ser del área
-- [ ] Hay al menos dos tipos de usuario con necesidades distintas
-- [ ] Identifiqué un conflicto real entre usuarios
-- [ ] El alcance dice qué queda fuera, no solo qué queda dentro
-- [ ] Las exclusiones son específicas, no genéricas
-- [ ] Identifiqué el tipo de sistema y al menos dos atributos de calidad
-- [ ] Anoté al menos tres reglas de negocio no obvias
-- [ ] Justifiqué el ciclo de vida contra dos alternativas descartadas
-- [ ] El documento está en mi repositorio y se puede leer desde el navegador
-- [ ] Borré todas las instrucciones en cursiva de la plantilla
+- [x] La descripción del apartado 1 se entiende sin ser del área
+- [x] Hay al menos dos tipos de usuario con necesidades distintas
+- [x] Identifiqué un conflicto real entre usuarios
+- [x] El alcance dice qué queda fuera, no solo qué queda dentro
+- [x] Las exclusiones son específicas, no genéricas
+- [x] Identifiqué el tipo de sistema y al menos dos atributos de calidad
+- [x] Anoté al menos tres reglas de negocio no obvias
+- [x] Justifiqué el ciclo de vida contra dos alternativas descartadas
+- [x] El documento está en mi repositorio y se puede leer desde el navegador
+- [x] Borré todas las instrucciones en cursiva de la plantilla
