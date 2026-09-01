@@ -73,15 +73,13 @@ La gestión de pagos se excluye porque el sistema se enfoca únicamente en el se
 
 ## 4. Tipo de sistema y restricciones
 
-**Tipo de sistema:**
-
-Prototipado Rápido
+**Tipo de sistema: De información**
 
 **Por qué es de ese tipo:**
 
-- Al ser un dashboard para alumnos y directores, necesitas retroalimentación constante sobre la interfaz y la usabilidad antes de codificar la lógica final.
-- Permite ajustar vistas y roles sobre la marcha sin el costo rígido de volver a documentar fases previas como exigen otros modelos.
-- Garantiza que los accesos y vistas diferenciados para estudiantes y directores se ajusten exactamente a las expectativas de cada perfil
+- Gestión de datos del negocio: Registra información de alumnos, avances, evidencias cargadas y aprobaciones de los directores.
+- Requiere usabilidad (interfaz clara para alumnos y directores), integridad de datos (que no se pierdan los registros), trazabilidad (saber quién aprobó qué requisito y cuándo) y control de acceso (diferentes permisos según el rol).
+- La dificultad principal radica en traducir los criterios de aprobación que viven en la operación diaria de los directores hacia el sistema.
   
 **Atributos de calidad que impone:**
 
@@ -105,13 +103,15 @@ Prototipado Rápido
 
 ## 5. Ciclo de vida elegido
 
-**Modelo elegido: Agil/Scrum**
+**Modelo elegido: Ágil / Scrum (con enfoque de Prototipado Rápido)**  
 
 **Por qué le conviene a este proyecto:**
 
-- Los requisitos iniciales del sistema están definidos, pero al tratarse de una plataforma universitaria, surgirán ajustes según la retroalimentación de directores y alumnos.
-- Los directores del programa y estudiantes si tienen la disponibilidad para revisiones, permitiendo validar avances rápidamente.
-- El riesgo es moderado-bajo. Trabajar en iteraciones cortas reduce el riesgo de construir funcionalidades que no se adapten a lo que se busca.
+El desarrollo de PLEAS Tracker se beneficia de una metodología Ágil con Scrum combinada con Prototipado Rápido, ya que la naturaleza del proyecto requiere validar interfaces y flujos con usuarios reales antes de congelar la arquitectura final.
+
+Aunque los requisitos iniciales están definidos, al tratarse de una plataforma universitaria basada en roles (estudiantes y directores), surgirán ajustes constantes en la usabilidad, el diseño del dashboard y los permisos de acceso. Trabajar en iteraciones cortas (sprints) aprovecha la disponibilidad de los alumnos y directores para realizar revisiones periódicas, permitiendo adaptar las vistas y flujos de trabajo sobre la marcha sin el costo rígido de redocumentar etapas anteriores.
+
+Además, la creación de prototipos rápidos dentro de cada sprint reduce el riesgo de desarrollar funcionalidades o paneles que no se adapten a las expectativas de los usuarios, garantizando una entrega incremental, de bajo riesgo y alineada a las necesidades operativas reales del programa.
 
 ### Alternativas descartadas
 
@@ -119,9 +119,9 @@ Prototipado Rápido
 
 *Por qué la descarté:* XP se enfoca excesivamente en prácticas técnicas rigurosas. Para este proyecto, la prioridad actual es el prototipado rápido y la validación de flujos de usuario con directores y alumnos, por lo que XP agregaría una sobrecarga metodológica y técnica que no aporta valor directo a la fase actual del proyecto.
 
-**Alternativa 2: Kanban**
+**Alternativa 2: Modelo V**
 
-*Por qué la descarté:* Kanban opera bajo un flujo de trabajo continuo y sin periodos fijos de tiempo. Este proyecto requiere de la estructura de entregables cortos (Sprints) para establecer objetivos claros, organizar la entrega incremental de prototipos y agendar sesiones de revisión periódicas con los usuarios finales.
+*Por qué la descarté:* exige congelar los requisitos desde el inicio para diseñar planes de pruebas formales, lo que resulta demasiado rígido para este caso.Como el proyecto requiere validar prototipos del dashboard con directores y alumnos, este modelo dificultaría adaptar la interfaz sobre la marcha. Además, al dejar las pruebas con usuarios para las fases finales, se corre el riesgo de detectar fallos de usabilidad cuando corregirlos ya es muy costoso.
 
 ---
 
