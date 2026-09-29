@@ -2,7 +2,7 @@
 
 **Sistema:** TrackerPLEAS
 **Autor:** Victor Manuel Flores Venegas
-**Versión:** 0.2 (posterior a la entrevista de elicitación)
+**Versión:** 1.0 (entrega con casos de uso y prototipo)
 **Fecha de la última actualización:** 29/09/2026
 
 ---
@@ -420,8 +420,8 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 |---|---|
 | Atributo de calidad | Rendimiento |
 | Descripción | El avance de un alumno se despliega en menos de tres segundos con el total de alumnos registrados. |
-| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 200 alumnos registrados. |
-| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento y tiene datos sin depurar. Los valores de 3 segundos y 200 alumnos son supuesto propio. |
+| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 500 alumnos registrados. |
+| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento y tiene datos sin depurar. Los valores de 3 segundos y 500 alumnos son supuesto propio. |
 | Prioridad | Importante |
 | Por qué importa | Si el sistema tarda, los usuarios vuelven a Excel o a preguntar directamente al director. |
 | Afecta a | RF-003, RF-004, RF-020 |
@@ -432,8 +432,8 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 |---|---|
 | Atributo de calidad | Rendimiento |
 | Descripción | El tablero global se despliega en menos de tres segundos con el total de alumnos registrados. |
-| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 200 alumnos registrados. |
-| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento. Los valores de 3 segundos y 200 alumnos son supuesto propio. |
+| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 500 alumnos registrados. |
+| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento. Los valores de 3 segundos y 500 alumnos son supuesto propio. |
 | Prioridad | Importante |
 | Por qué importa | El Director General consulta el tablero para decidir; si tarda, vuelve a pedir los datos a cada programa. |
 | Afecta a | RF-015 |
@@ -443,6 +443,8 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 ## 5. Casos de uso
 
 El diagrama está en `docs/diagramas/casos-de-uso.png` (editable en `casos-de-uso.drawio`). Actores: Estudiante, Asistente/Comité, Director de Programa, Director General y Soy León (sistema externo).
+
+![Diagrama de casos de uso de TrackerPLEAS](diagramas/casos-de-uso.png)
 
 Los requisitos RF-001, RF-002, RF-013 y RF-025 (identificación, permisos por rol, bitácora e inalterabilidad de la bitácora) no son un objetivo de un actor, sino condiciones de todos los casos de uso, por lo que se tratan como transversales.
 
@@ -476,37 +478,59 @@ CU-06 se apoya en un supuesto propio: que el Director de Programa asigna el esta
 | Postcondición | La actividad validada forma parte del avance validado del alumno, ya no aparece en la lista y la validación consta en la bitácora con usuario, fecha y hora. |
 | Requisitos que realiza | RF-002, RF-004, RF-008, RF-009, RF-011, RF-013, RF-016, RF-018, RF-020, RF-021, RNF-SEG-001, RNF-CON-001 |
 
+### 5.3 Prototipo navegable
+
+**Enlace al prototipo (Figma):** [Ver prototipo navegable](https://www.figma.com/make/cUFKCMh9fzRMolQw5REEhe/TrackerPLEAS-validaci%C3%B3n-de-actividades?fullscreen=1&t=aUAmHRf5zow5vY4L-1&code-node-id=0-6)
+
+**Video de explicación y recorrido:** [Ver video en YouTube](https://youtu.be/EH2l_ni-t-Y)
+
+El prototipo recorre el caso de uso CU-04 de principio a fin y resuelve sus flujos alternos.
+
+| Pantalla | Qué muestra | Paso o flujo del CU-04 |
+|---|---|---|
+| P1 Inicio de sesión | Acceso del Director de Programa | Precondición |
+| P2 Actividades en validación | Lista de actividades de su programa | Pasos 1 y 2 |
+| P3 Detalle de la actividad | Ficha del alumno y evidencias | Pasos 3 y 4 |
+| P4 Confirmar validación | Confirmación de la validación | Paso 5 |
+| P5 Validación registrada | Avance actualizado y entrada en bitácora | Pasos 7 y 8 |
+| P6 Sin actividades en validación | Estado vacío | Flujo alterno 1a |
+| P7 Dejar en validación | La actividad permanece en validación | Flujo alterno 4a |
+| P8 Acceso denegado | Alumno de otro programa | Flujo alterno 5a |
+| P9 Expediente bloqueado | Rechazo por bloqueo | Flujo alterno 6a |
+| P10 Validación fuera de plazo | Formulario con justificación | Flujo alterno 6b |
+| P11 Bitácora | Registro de acciones | Postcondición |
+
 ---
 
 ## 6. Trazabilidad
 
 | Requisito | Origen | Caso de uso | Elemento del prototipo |
 |---|---|---|---|
-| RF-001 | Visión | Todos (transversal) | Pendiente |
-| RF-002 | Visión | Todos (transversal) | Pendiente |
-| RF-003 | Visión | CU-01 | Pendiente |
-| RF-004 | Visión | CU-01 | Pendiente |
-| RF-005 | Visión | CU-01 | Pendiente |
-| RF-006 | Visión + entrevista | CU-02 | Pendiente |
-| RF-007 | Visión + entrevista | CU-02 | Pendiente |
-| RF-008 | Supuesto propio + entrevista | CU-01, CU-02, CU-04 | Pendiente |
-| RF-009 | Visión + entrevista | CU-04 | Pendiente |
-| RF-010 | Visión | CU-05 | Pendiente |
-| RF-011 | Entrevista | CU-02, CU-04 | Pendiente |
-| RF-012 | Visión | CU-06 | Pendiente |
-| RF-013 | Visión + entrevista | Todos (transversal) | Pendiente |
-| RF-014 | Entrevista | CU-07 | Pendiente |
-| RF-015 | Visión | CU-08 | Pendiente |
-| RF-016 | Entrevista | CU-04 | Pendiente |
-| RF-017 | Entrevista | CU-02 | Pendiente |
-| RF-018 | Entrevista + supuesto propio | CU-02, CU-03, CU-04 | Pendiente |
-| RF-019 | Entrevista | CU-03 | Pendiente |
-| RF-020 | Entrevista | CU-02, CU-04 | Pendiente |
-| RF-021 | Supuesto propio | CU-04 | Pendiente |
-| RF-022 | Entrevista + supuesto propio | CU-02 | Pendiente |
-| RF-023 | Entrevista + supuesto propio | CU-07 | Pendiente |
-| RF-024 | Entrevista | CU-07 | Pendiente |
-| RF-025 | Visión | Todos (transversal) | Pendiente |
+| RF-001 | Visión | Todos (transversal) | P1 Inicio de sesión |
+| RF-002 | Visión | Todos (transversal) | P8 Acceso denegado |
+| RF-003 | Visión | CU-01 | No incluido en el prototipo |
+| RF-004 | Visión | CU-01 | P5 Validación registrada |
+| RF-005 | Visión | CU-01 | No incluido en el prototipo |
+| RF-006 | Visión + entrevista | CU-02 | No incluido en el prototipo |
+| RF-007 | Visión + entrevista | CU-02 | No incluido en el prototipo |
+| RF-008 | Supuesto propio + entrevista | CU-01, CU-02, CU-04 | P2 Actividades en validación, P5 Validación registrada |
+| RF-009 | Visión + entrevista | CU-04 | P3 Detalle de la actividad, P4 Confirmar validación, P8 Acceso denegado |
+| RF-010 | Visión | CU-05 | No incluido en el prototipo |
+| RF-011 | Entrevista | CU-02, CU-04 | P9 Expediente bloqueado |
+| RF-012 | Visión | CU-06 | No incluido en el prototipo |
+| RF-013 | Visión + entrevista | Todos (transversal) | P5 Validación registrada, P11 Bitácora |
+| RF-014 | Entrevista | CU-07 | No incluido en el prototipo |
+| RF-015 | Visión | CU-08 | No incluido en el prototipo |
+| RF-016 | Entrevista | CU-04 | P10 Validación fuera de plazo |
+| RF-017 | Entrevista | CU-02 | No incluido en el prototipo |
+| RF-018 | Entrevista + supuesto propio | CU-02, CU-03, CU-04 | P3 Detalle de la actividad |
+| RF-019 | Entrevista | CU-03 | No incluido en el prototipo |
+| RF-020 | Entrevista | CU-02, CU-04 | P3 Detalle de la actividad |
+| RF-021 | Supuesto propio | CU-04 | P2 Actividades en validación |
+| RF-022 | Entrevista + supuesto propio | CU-02 | No incluido en el prototipo |
+| RF-023 | Entrevista + supuesto propio | CU-07 | No incluido en el prototipo |
+| RF-024 | Entrevista | CU-07 | No incluido en el prototipo |
+| RF-025 | Visión | Todos (transversal) | P11 Bitácora (sin opciones de editar ni borrar) |
 
 ---
 
@@ -530,6 +554,7 @@ CU-06 se apoya en un supuesto propio: que el Director de Programa asigna el esta
 | 28/09/2026 | RNF-CON-002 | Se eliminó "ningún registro se pierde" y se dejó solo la recuperación de 24 horas. | Una idea por requisito y una sola métrica comprobable. |
 | 28/09/2026 | RNF-REN-001, RNF-REN-002 | Se separó en avance de un alumno y tablero global, y se agregó la entrevista al origen. | Una idea por requisito; el director confirmó que el Excel actual es lento. |
 | 28/09/2026 | Secciones 5 y 6 | Se agregaron los 8 casos de uso, el caso de uso CU-04 completo y la columna de casos de uso de la trazabilidad. | Ejercicio de casos de uso de la semana 7. |
+| 29/09/2026 | Secciones 5 y 6 | Se agregó el prototipo navegable (sección 5.3) y se llenó la columna de elementos del prototipo en la trazabilidad. Los requisitos que no aparecen en el prototipo se marcan como no incluidos. | Entrega del prototipo en Figma. |
 
 ---
 
@@ -543,6 +568,6 @@ CU-06 se apoya en un supuesto propio: que el Director de Programa asigna el esta
 - [x] Hay al menos un requisito no funcional por cada atributo de calidad que impone mi tipo de sistema
 - [x] Ningún requisito impone una solución técnica
 - [x] Todos los requisitos caben dentro del alcance declarado
-- [ ] La tabla de trazabilidad está completa
+- [x] La tabla de trazabilidad está completa
 - [ ] Mi dupla revisó el documento y su revisión está registrada
 - [x] Borré los ejemplos y las instrucciones en cursiva
