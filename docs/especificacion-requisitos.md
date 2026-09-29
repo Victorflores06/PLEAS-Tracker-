@@ -444,7 +444,7 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 
 El diagrama está en `docs/diagramas/casos-de-uso.png` (editable en `casos-de-uso.drawio`). Actores: Estudiante, Asistente/Comité, Director de Programa, Director General y Soy León (sistema externo).
 
-![Diagrama de casos de uso de TrackerPLEAS](diagramas/casos-de-uso.png)
+![Diagrama de casos de uso de TrackerPLEAS](docs/diagramas/casos-de-uso.drawio.png)
 
 Los requisitos RF-001, RF-002, RF-013 y RF-025 (identificación, permisos por rol, bitácora e inalterabilidad de la bitácora) no son un objetivo de un actor, sino condiciones de todos los casos de uso, por lo que se tratan como transversales.
 
