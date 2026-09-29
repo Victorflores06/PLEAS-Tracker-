@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Casos de uso" id="casos-de-uso">
+    <mxGraphModel dx="1099" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frontera" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;verticalAlign=top;fontStyle=1;fontSize=14;align=center;" value="TrackerPLEAS" vertex="1">
+          <mxGeometry height="640" width="690" x="190" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cu1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-01&lt;br&gt;Consultar avance de graduación" vertex="1">
+          <mxGeometry height="70" width="190" x="283" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="cu2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-02&lt;br&gt;Registrar avance de un estudiante" vertex="1">
+          <mxGeometry height="70" width="190" x="440" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="cu3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-03&lt;br&gt;Revisar evidencias de una actividad" vertex="1">
+          <mxGeometry height="70" width="190" x="283" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="cu6" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-06&lt;br&gt;Declarar apto para graduación a un estudiante" vertex="1">
+          <mxGeometry height="70" width="190" x="665" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="cu4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-04&lt;br&gt;Validar actividades de un alumno" vertex="1">
+          <mxGeometry height="70" width="190" x="665" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="cu7" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-07&lt;br&gt;Recibir reporte semanal de avance" vertex="1">
+          <mxGeometry height="70" width="190" x="665" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="cu5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-05&lt;br&gt;Invalidar una aprobación" vertex="1">
+          <mxGeometry height="70" width="190" x="665" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="cu8" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" value="CU-08&lt;br&gt;Consultar indicadores globales" vertex="1">
+          <mxGeometry height="70" width="190" x="665" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="est" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Estudiante" vertex="1">
+          <mxGeometry height="60" width="30" x="110" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="asi" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Asistente/Comité" vertex="1">
+          <mxGeometry height="60" width="30" x="110" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="dp" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Director de Programa" vertex="1">
+          <mxGeometry height="60" width="30" x="1000" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dg" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Director General" vertex="1">
+          <mxGeometry height="60" width="30" x="1000" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="sl" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Soy León (sistema externo)" vertex="1">
+          <mxGeometry height="60" width="30" x="90" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="est" style="endArrow=none;html=1;rounded=0;" target="cu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="asi" style="endArrow=none;html=1;rounded=0;" target="cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="asi" style="endArrow=none;html=1;rounded=0;" target="cu3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="dp" style="endArrow=none;html=1;rounded=0;" target="cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="dp" style="endArrow=none;html=1;rounded=0;" target="cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="dp" style="endArrow=none;html=1;rounded=0;" target="cu6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="dp" style="endArrow=none;html=1;rounded=0;" target="cu7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="dg" style="endArrow=none;html=1;rounded=0;" target="cu4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="dg" style="endArrow=none;html=1;rounded=0;" target="cu5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="dg" style="endArrow=none;html=1;rounded=0;" target="cu7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="dg" style="endArrow=none;html=1;rounded=0;" target="cu8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="sl" style="endArrow=none;html=1;rounded=0;" target="cu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
