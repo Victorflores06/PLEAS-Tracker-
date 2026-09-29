@@ -421,7 +421,7 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 | Atributo de calidad | Rendimiento |
 | Descripción | El avance de un alumno se despliega en menos de tres segundos con el total de alumnos registrados. |
 | Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 200 alumnos registrados. |
-| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento y tiene datos sin depurar. Los valores de 3 segundos y 500 alumnos son supuesto propio. |
+| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento y tiene datos sin depurar. Los valores de 3 segundos y 200 alumnos son supuesto propio. |
 | Prioridad | Importante |
 | Por qué importa | Si el sistema tarda, los usuarios vuelven a Excel o a preguntar directamente al director. |
 | Afecta a | RF-003, RF-004, RF-020 |
@@ -432,8 +432,8 @@ Este documento define qué debe hacer TrackerPLEAS y con qué calidad. Está dir
 |---|---|
 | Atributo de calidad | Rendimiento |
 | Descripción | El tablero global se despliega en menos de tres segundos con el total de alumnos registrados. |
-| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 500 alumnos registrados. |
-| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento. Los valores de 3 segundos y 500 alumnos son supuesto propio. |
+| Métrica | Tiempo entre la solicitud y el despliegue completo, medido con hasta 200 alumnos registrados. |
+| Origen | Entrevista con el director, 22 de septiembre de 2026: el Excel actual es lento. Los valores de 3 segundos y 200 alumnos son supuesto propio. |
 | Prioridad | Importante |
 | Por qué importa | El Director General consulta el tablero para decidir; si tarda, vuelve a pedir los datos a cada programa. |
 | Afecta a | RF-015 |
