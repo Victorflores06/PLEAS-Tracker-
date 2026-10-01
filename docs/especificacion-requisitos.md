@@ -3,7 +3,7 @@
 **Sistema:** TrackerPLEAS
 **Autor:** Victor Manuel Flores Venegas
 **Versión:** 1.0 (entrega con casos de uso y prototipo)
-**Fecha de la última actualización:** 29/09/2026
+**Fecha de la última actualización:** 01/10/2026
 
 ---
 
@@ -558,6 +558,35 @@ El prototipo recorre el caso de uso CU-04 de principio a fin y resuelve sus fluj
 
 ---
 
+## 8. Revisión de la dupla
+
+La especificación de requisitos fue revisada por la dupla antes de la entrega. Las observaciones recibidas se analizaron con el propósito de identificar inconsistencias entre secciones, problemas de trazabilidad, supuestos que podrían confundirse con decisiones del cliente y aspectos que requieren mayor clarificación.
+
+Las observaciones aceptadas no implican necesariamente una modificación inmediata del alcance. Los cambios identificados se incorporarán o resolverán durante la siguiente revisión de la especificación.
+
+| ID | Observación de la dupla | Evaluación | Acción propuesta | Estado |
+|---|---|---|---|---|
+| RD-001 | Hay una inconsistencia en quién participa en CU-04. La ficha de CU-04 establece al Director General como actor secundario que solo interviene en el flujo alterno 6b, pero el resumen de casos de uso (5.1) lo presenta junto al Director de Programa como actor del caso, lo que hace parecer que también participa en el flujo normal. | **Válida.** La ficha y el resumen describen el mismo caso con distinto nivel de precisión. El resumen debe reflejar lo que dice la ficha y lo que confirmó la entrevista: el Director General solo autoriza validaciones fuera de plazo (RF-016). | En el resumen de casos de uso, dejar **Director de Programa** como actor principal de `CU-04` y aclarar que el **Director General interviene únicamente en el flujo alterno 6b**. | Pendiente |
+| RD-002 | `RF-004` aparece trazado al prototipo de `CU-04` (`P5 Validación registrada`) y en los requisitos que realiza CU-04, aunque en el resumen de casos de uso está asignado únicamente a `CU-01`. | **Parcialmente válida.** P5 muestra el avance actualizado del alumno como consecuencia de la validación, pero no presenta la consulta completa que define RF-004 (cada criterio de graduación con su estado, consultada por el Estudiante). Hay que decidir si CU-04 realiza RF-004 o solo muestra información derivada de él. | Revisar la relación `RF-004 ↔ CU-04`. Si P5 solo muestra el nuevo avance, quitar RF-004 de los requisitos que realiza CU-04 y, en la trazabilidad, indicar que P5 muestra información derivada de RF-004. Si P5 presenta la consulta completa, agregar CU-04 a RF-004 en el resumen y en la trazabilidad. | Pendiente de decisión |
+| RD-003 | `RF-025` (inalterabilidad de la bitácora) se declara transversal a todos los casos de uso, aunque no interviene directamente en todos ellos; su representación en el prototipo es específica (`P11 Bitácora` sin opciones de editar ni borrar). | **Válida.** La identificación, los permisos por rol y el registro en bitácora sí ocurren en todos los casos de uso. La inalterabilidad, en cambio, es una restricción sobre la bitácora misma, no una condición que cada caso de uso ejecute. | Retirar RF-025 de la lista de requisitos transversales de la sección 5 y tratarlo como restricción asociada a `RF-013`. En la trazabilidad, cambiar "Todos (transversal)" por la relación con RF-013 y P11. | Pendiente |
+| RD-004 | Permanecen varios supuestos propios que afectan reglas del sistema, por ejemplo quién asigna "Apto para Graduación" (CU-06) y los valores de rendimiento de 3 segundos y 500 alumnos. | **Válida.** Los supuestos ya están marcados en el campo Origen de cada ficha, pero están dispersos y pueden terminar tratándose como decisiones confirmadas del cliente. | Crear una sección de **aspectos pendientes de validación** que reúna los supuestos y huecos abiertos: quién asigna "Apto para Graduación" (CU-06), quién captura los criterios (RF-007), la lista de actividades que requieren validación (RF-008), la frecuencia y el uso de los datos de Soy León (RF-017), el tipo de evidencia y los resultados de su revisión (RF-018, RF-019), los destinatarios del correo (RF-023), el avance esperado por semestre (RF-024) y los valores de los RNF (1 minuto, 30 segundos, 99%, 24 horas, 3 segundos, 500 alumnos). Llevar esta lista a la siguiente entrevista con el director. | Pendiente |
+| RD-005 | El alcance (sección 1) menciona el bloqueo de expedientes con menor precisión que los requisitos: dice solo "después del periodo de intersemestrales", mientras que la entrevista confirmó "una semana después". | **Válida.** RF-011 y la sección 2 ya incluyen el plazo confirmado; solo el alcance quedó con la redacción anterior. | Homogeneizar la redacción del alcance para indicar que el bloqueo ocurre **una semana después** de que termina el periodo de intersemestrales. | Pendiente |
+| RD-006 | `RF-014` (generación del reporte) y `RF-023` (envío por correo) deberían estar más claramente separados. El alcance los presenta como una sola funcionalidad ("genera un reporte semanal en PDF, lo envía por correo…"). | **Parcialmente válida.** La separación en dos requisitos es correcta (una idea por requisito, y tienen prioridades distintas: Importante y Deseable). Lo que falta es que cada descripción deje explícito qué hace y qué no hace, para que el reporte pueda existir aunque el envío automático se posponga. | Precisar en `RF-014` que solo se ocupa de **generar** el PDF y dejarlo disponible, sin enviarlo. Precisar en `RF-023` que se ocupa exclusivamente de **enviar** el reporte ya generado. El alcance puede mantener la visión conjunta del usuario. | Pendiente |
+| RD-007 | `RF-021` (lista de actividades en validación) es Imprescindible pero su origen es supuesto propio. El profesor podría preguntar por qué algo supuesto por el equipo es imprescindible. | **Válida en cuanto al origen; la prioridad se mantiene.** El requisito no surgió de la nada: sin esta lista, el Director de Programa no puede saber qué validar y RF-009 (Imprescindible) no puede ejecutarse en la práctica. Además, el paso 1 de CU-04 depende de ella. | Reformular el Origen de RF-021 como: *"Supuesto propio derivado de RF-009 y de la necesidad funcional del flujo de validación (CU-04, paso 1)"*. Mantener la prioridad Imprescindible y confirmarla con el director en la siguiente entrevista. | Pendiente |
+| RD-008 | `RF-020` (ficha del alumno) incluye la foto, que es el dato más cuestionable: no queda claro en qué parte de la entrevista se pidió específicamente. | **Parcialmente válida.** El Origen indica que los datos visibles del alumno se confirmaron en la entrevista, pero no detalla cuáles. Además, la foto es un dato personal, lo que agrega una consideración de privacidad. Al ser Deseable, el impacto es bajo. | Detallar en el Origen de RF-020 qué datos se confirmaron en la entrevista del 22 de septiembre de 2026, con referencia a las notas. Si la foto no se pidió explícitamente, marcarla como supuesto propio o retirarla del requisito. | Pendiente |
+| RD-009 | `RF-024` define el rezago como el avance menor al esperado para el semestre, pero el avance esperado por semestre está por definir. Sin ese valor, el sistema no puede calcular el rezago. | **Válida.** Es una dependencia de información que solo puede aportar el cliente. Como RF-024 es Deseable y no está incluido en el prototipo, no afecta la entrega actual, pero no puede implementarse mientras no se defina. | Registrar el avance esperado por semestre como dependencia en la sección de aspectos pendientes de validación (RD-004) y solicitarlo al director. Mientras no se defina, RF-024 queda sin poder implementarse. | Pendiente de definición del cliente |
+
+### Resultado de la revisión
+
+La revisión permitió identificar seis observaciones válidas y tres parcialmente válidas. Siete requieren modificar la redacción, el origen o la trazabilidad de requisitos y casos de uso existentes; una requiere una decisión previa sobre la relación entre RF-004 y CU-04 (RD-002), y otra depende de información que debe aportar el cliente (RD-009).
+
+Las observaciones no se incorporan automáticamente como cambios en esta versión. Se registran como trabajo pendiente para la siguiente revisión, donde deberán actualizarse, según corresponda, el alcance, los requisitos funcionales, los casos de uso y la tabla de trazabilidad, y crearse la sección de aspectos pendientes de validación.
+
+La revisión también permitió comprobar que los elementos principales del sistema —control de acceso por rol, validación por el Director del programa del alumno, bloqueo de expedientes con validación fuera de plazo justificada, bitácora con evidencias, integración con Soy León y reporte semanal de avance— se encuentran representados en la especificación actual, y que el caso de uso principal (CU-04) está cubierto de principio a fin por el prototipo navegable.
+
+---
+
+
 ## Antes de entregar
 
 - [x] Todos los requisitos tienen identificador único y ninguno está repetido
@@ -569,5 +598,5 @@ El prototipo recorre el caso de uso CU-04 de principio a fin y resuelve sus fluj
 - [x] Ningún requisito impone una solución técnica
 - [x] Todos los requisitos caben dentro del alcance declarado
 - [x] La tabla de trazabilidad está completa
-- [ ] Mi dupla revisó el documento y su revisión está registrada
+- [x] Mi dupla revisó el documento y su revisión está registrada
 - [x] Borré los ejemplos y las instrucciones en cursiva
