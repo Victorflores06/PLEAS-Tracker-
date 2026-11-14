@@ -29,10 +29,9 @@ Traducido a TrackerPLEAS:
 ### Puntos que no puedo traducir sin que el solicitante los aclare
 
 1. **¿Qué significa "revisado"?** ¿Abrir el reporte, descargarlo o una acción explícita de "marcar como revisado"? Hoy el sistema no tiene ese concepto.
-2. **¿A quién va el mensaje?** La solicitud dice "un número asociado a quién representaría al director". ¿Es el teléfono del propio Director de Programa o el de un delegado (por ejemplo, el rol Asistente)?
-3. **¿Los 5 días son naturales o hábiles?** La regla de negocio de cierre de periodos del sistema usa días hábiles. Además, la solicitud dice "3 días" en un lugar y "72 horas" en otro.
-4. **¿La confirmación es parte del cambio?** Aparece en "Qué se pide" pero no en el criterio de aceptación.
-5. **¿Qué pasa en vacaciones o periodos de cierre?** Si el reporte sigue generándose, las alertas podrían dispararse cuando nadie está trabajando.
+2. **¿Los 5 días son naturales o hábiles?** La regla de negocio de cierre de periodos del sistema usa días hábiles. Además, la solicitud dice "3 días" en un lugar y "72 horas" en otro.
+3. **¿La confirmación es parte del cambio?** Aparece en "Qué se pide" pero no en el criterio de aceptación.
+4. **¿Qué pasa en vacaciones o periodos de cierre?** Si el reporte sigue generándose, las alertas podrían dispararse cuando nadie está trabajando.
 
 **Supuestos con los que estimo mientras no haya respuesta:** "revisado" es una acción explícita del Director de Programa; el mensaje va al teléfono del Director de Programa; los plazos son días naturales (5 días y 72 horas); la confirmación sale por el mismo canal del último aviso; y las alertas siguen corriendo en periodos de cierre.
 
