@@ -165,11 +165,6 @@ class EntradaBitacora {
     -fechaHora: Date
 }
  
-class NotificadorAlumno {
-    +alCambiarEstado(registro) void
-    +enviarAviso(estudiante, mensaje) void
-}
- 
 %% ---------- Relaciones ----------
 Estudiante "1" --> "1" Usuario : tiene cuenta
 Estudiante "*" --> "1" Programa : cursa
@@ -196,7 +191,6 @@ Evidencia "*" --> "0..1" Usuario : revisada por
 %% Observer
 RegistroAvance "1" --> "*" ObservadorValidacion : notifica
 Expediente ..|> ObservadorValidacion
-NotificadorAlumno ..|> ObservadorValidacion
  
 %% Adapter
 AdaptadorSoyLeon ..|> FuenteDeActividades
