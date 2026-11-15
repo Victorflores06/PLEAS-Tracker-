@@ -51,7 +51,7 @@ flowchart TD
     web[App web]
 
     subgraph app["Aplicación del servidor · monolito modular"]
-        acceso["Acceso y roles<br/>usuarios y permisos"]
+        acceso["Acceso y roles<br/>usuarios, permisos y bitácora"]
         exp["Expediente y avance<br/>porcentaje y aptitud para graduarse"]
         val["Validación de actividades<br/>actividades y evidencia"]
         rep["Reportes y avisos<br/>reporte semanal"]
@@ -66,7 +66,8 @@ flowchart TD
     web -->|valida actividades| val
     web -->|solicita reportes| rep
 
-    val -->|pregunta el rol del usuario| acceso
+    val -->|pregunta el rol y registra en bitácora| acceso
+    exp -->|registra en bitácora| acceso
     val -->|evento: actividad validada| exp
     integ -->|envía actividades y participantes| val
     integ -->|envía inscripción y asistencia| exp
