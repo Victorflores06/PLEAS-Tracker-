@@ -29,6 +29,7 @@ stateDiagram-v2
         Se muestra aparte como avance en validacion.
     end note
 ```
+## Diagrama de máquina de estados: RegistroAvance (Horizontal)
 
 ```mermaid
 stateDiagram-v2
