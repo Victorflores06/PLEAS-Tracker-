@@ -106,6 +106,7 @@ class EstadoRegistro {
     EN_VALIDACION
     VALIDADO
     INVALIDADO
+    RECHAZADO
 }
  
 class ObservadorValidacion {
