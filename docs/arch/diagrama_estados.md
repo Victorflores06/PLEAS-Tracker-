@@ -52,4 +52,4 @@ stateDiagram-v2
     Invalidado --> EnValidacion: reenviar
 ```
 
-No hay estado final: un registro de avance no termina, permanece en el expediente del estudiante.
+No hay estado final: un registro de avance no termina, permanece en el expediente del estudiante. Solo el estado Validado cuenta en el avance; En validación se muestra aparte.
