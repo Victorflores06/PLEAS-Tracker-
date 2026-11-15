@@ -18,6 +18,12 @@ class Usuario {
     +verificarCredenciales(contrasena) bool
     +puedeRealizar(accion) bool
 }
+
+class EntradaBitacora {
+    -accion: string
+    -requisitoAfectado: string
+    -fechaHora: Date
+}
  
 %% ---------- Modulo: Expediente y avance ----------
 class Estudiante {
@@ -156,12 +162,6 @@ class LineaReporte {
     -nombreEstudiante: string
     -porcentajeAvance: double
     -rezago: double
-}
- 
-class EntradaBitacora {
-    -accion: string
-    -requisitoAfectado: string
-    -fechaHora: Date
 }
  
 %% ---------- Relaciones ----------
