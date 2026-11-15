@@ -16,7 +16,6 @@ class Usuario {
     -contrasena: string
     -rol: Rol
     +verificarCredenciales(contrasena) bool
-    +validarContrasena(contrasena) bool
     +puedeRealizar(accion) bool
 }
  
@@ -205,7 +204,6 @@ note for CriterioGraduacion "Strategy: Expediente solo pregunta, sin importar el
 note for Expediente "Apto solo con 100% (RF-012). El bloqueo no se guarda: se calcula con PeriodoAcademico. Con bloqueo, acepta cambios solo con justificacion (RF-016)."
 note for EntradaBitacora "Inmutable: se crea y no vuelve a cambiar (RF-025)."
 note for ReporteSemanal "Copia fija al generarse (RF-014 CA-4): por eso guarda LineaReporte y no apunta a Expediente."
-note for Usuario "Contrasena: minimo 8 caracteres, una mayuscula y un numero (RF-001)."
 note for RegistroAvance "Observer: al validar o invalidar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
 
