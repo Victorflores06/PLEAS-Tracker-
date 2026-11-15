@@ -205,8 +205,6 @@ FuenteDeActividades ..> Actividad : entrega
 EntradaBitacora "*" --> "1" Usuario : realizada por
 ReporteSemanal "*" --> "1" Programa : de
 ReporteSemanal "1" *-- "*" LineaReporte : contiene
-
-```
  
 %% ---------- Notas ----------
 note for CriterioGraduacion "Strategy: Expediente solo pregunta, sin importar el tipo. TEA 8, Clase 4 de las opciones del programa, ADAI 1."
@@ -217,3 +215,4 @@ note for Usuario "Contrasena: minimo 8 caracteres, una mayuscula y un numero (RF
 note for RegistroAvance "Observer: al validar o invalidar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
 
+```
