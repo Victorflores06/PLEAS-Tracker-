@@ -1,4 +1,5 @@
 
+```mermaid
 sequenceDiagram
     %% El estudiante consulta su avance
     %% Trazabilidad: RF-002, RF-003, RF-004, RF-005, RF-008
@@ -34,3 +35,4 @@ sequenceDiagram
     Exp-->>-Web: criterios por cumplir
 
     Web-->>Alu: muestra porcentaje, avance en validacion y requisitos por cumplir
+```
