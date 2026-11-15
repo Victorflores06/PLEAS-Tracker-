@@ -24,6 +24,6 @@ Hay un solo despliegue y un solo registro de errores, que es lo que una persona 
 
 No se puede escalar un módulo por separado. Si la generación de reportes se llega a comer los recursos cerca de los cierres, se tendrá que sacar.
 
-Si algún día hay que separar algo, el primer módulo en salir sería Reportes y avisos: solo lee de Expediente y no escribe en ningún lado, por lo que es el más fácil de cortar. La señal concreta sería que, mientras se generan los reportes cerca de los cortes o graduaciones, la consulta de avance de los estudiantes se vuelva lenta o se caiga.
+Si algún día hay que separar algo, el primer módulo en salir sería Reportes y avisos: solo lee de Expediente y solo escribe sus propios datos (los reportes ya generados), por lo que es el más fácil de cortar. La señal concreta sería que, mientras se generan los reportes cerca de los cortes o graduaciones, la consulta de avance de los estudiantes se vuelva lenta o se caiga.
 
 El riesgo real es que, por atajo, un módulo lea las tablas de otro y la frontera se pierda con el tiempo. Se revisa en cada cambio antes de integrarlo.
