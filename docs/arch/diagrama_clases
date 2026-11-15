@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
 direction TB
  
@@ -213,3 +214,5 @@ note for ReporteSemanal "Copia fija al generarse (RF-014 CA-4): por eso guarda L
 note for Usuario "Contrasena: minimo 8 caracteres, una mayuscula y un numero (RF-001)."
 note for RegistroAvance "Observer: al validar o invalidar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
+
+```
