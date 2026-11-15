@@ -5,9 +5,9 @@
 
 **Autor:** Victor Manuel Flores Venegas
 
-**Fecha de la última versión:** 30/09/2026
+**Fecha de la última versión:** 15/11/2026
 
-**Repositorio:** https://github.com/Victorflores06/PLEAS-Tracker
+**Repositorio:** https://github.com/Victorflores06/PLEAS-Tracker-
 
 ---
 
@@ -112,6 +112,8 @@ La creación de actividades se excluye porque ya existe en Soy León, y TrackerP
 
 - **4. Delegación operativa:** El Asistente/Comité sube los puntos y revisa las evidencias cotidianas para que el Director de Programa se concentre en validar las actividades que requieren su criterio.
 
+- **5. Criterios de graduación:** Para graduarse, el alumno debe cumplir 8 TEA's, 4 clases de las opciones que ofrece su programa, 1 proyecto y 1 ADAI. El avance total se calcula sobre estos criterios.
+
 ---
 
 ## 5. Ciclo de vida elegido
@@ -120,7 +122,7 @@ La creación de actividades se excluye porque ya existe en Soy León, y TrackerP
 
 **Por qué le conviene a este proyecto:**
 
-El desarrollo de PLEAS Tracker se beneficia de una metodología Ágil combinada con Prototipado Rápido, ya que la naturaleza del proyecto requiere validar interfaces y flujos con usuarios reales antes de congelar la arquitectura final.
+El desarrollo de TrackerPLEAS se beneficia de una metodología Ágil combinada con Prototipado Rápido, ya que la naturaleza del proyecto requiere validar interfaces y flujos con usuarios reales antes de congelar la arquitectura final.
 
 Aunque los requisitos iniciales están definidos, al tratarse de una plataforma universitaria basada en roles (estudiantes, asistentes y directores), surgirán ajustes constantes en la usabilidad, el diseño del dashboard y los permisos de acceso. Trabajar en iteraciones cortas (sprints) aprovecha la disponibilidad de los alumnos y directores para realizar revisiones periódicas, permitiendo adaptar las vistas y flujos de trabajo sobre la marcha sin el costo rígido de redocumentar etapas anteriores.
 
