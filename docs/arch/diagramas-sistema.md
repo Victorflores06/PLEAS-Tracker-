@@ -28,16 +28,16 @@ flowchart TD
     dir([Directores])
 
     subgraph sistema[TrackerPLEAS]
-        web["App web<br/>(por definir)"]
-        app["Aplicación del servidor<br/>monolito modular (por definir)"]
-        db[("Base de datos<br/>(por definir)")]
+        web["App web<br/>React"]
+        app["Aplicación del servidor<br/>monolito modular · Python con Django"]
+        db[("Base de datos<br/>PostgreSQL")]
     end
 
     soy[Soy León]
 
     est -->|usa| web
     dir -->|usan| web
-    web -->|HTTPS| app
+    web -->|HTTPS / JSON| app
     app -->|lee y escribe| db
     soy -->|datos de actividades| app
 
