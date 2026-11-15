@@ -2,8 +2,8 @@
  
 **Sistema:** TrackerPLEAS
 **Autor:** Victor Manuel Flores Venegas
-**Versión:** 1.1 (alineada con el diseño: diagramas de clases, de secuencia y de arquitectura)
-**Fecha de la última actualización:** 14/11/2026
+**Versión:** 1.2 (alineada con el diseño: diagramas de clases, de secuencia, de estados y de arquitectura)
+**Fecha de la última actualización:** 15/11/2026
  
 ---
  
@@ -76,6 +76,8 @@
 | RF-023 | Envío semanal automático del reporte por correo | Deseable | Entrevista + supuesto propio |
 | RF-024 | Orden del reporte por rezago | Deseable | Entrevista |
 | RF-025 | Inalterabilidad de la bitácora | Importante | Visión (trazabilidad) |
+| RF-026 | Rechazo de una actividad en validación | Importante | Supuesto propio (diseño) |
+| RF-027 | Reenvío a validación | Importante | Supuesto propio (diseño) |
  
 ### 3.2 Fichas
  
@@ -329,6 +331,26 @@
 | Criterio de aceptación | Ningún rol, incluido el Director General, puede editar ni borrar una entrada de la bitácora desde el sistema. |
 | Relacionado con | RF-013, RNF-SEG-001 |
  
+#### RF-026 · Rechazo de una actividad en validación
+ 
+| Campo | Contenido |
+|---|---|
+| Descripción | El sistema permite al Director del programa del alumno rechazar, con una justificación, una actividad que está en validación. |
+| Origen | Supuesto propio, surgido al modelar el ciclo de vida del registro de avance (`docs/arch/diagrama_estados.md`): hasta la v1.1, una actividad con evidencia insuficiente solo podía permanecer en validación. Por confirmar con el director. |
+| Prioridad | Importante |
+| Criterio de aceptación | Al rechazar con justificación una actividad en validación, esta pasa a "rechazada", deja de aparecer en la lista de actividades en validación, no suma al avance validado ni al avance en validación, y el rechazo queda en la bitácora. Sin justificación, el sistema no la rechaza. El director de otro programa no puede rechazarla. |
+| Relacionado con | RF-008, RF-009, RF-013, RF-021, RF-027 |
+ 
+#### RF-027 · Reenvío a validación
+ 
+| Campo | Contenido |
+|---|---|
+| Descripción | El sistema permite reenviar a validación un registro rechazado o invalidado. |
+| Origen | Supuesto propio, surgido al modelar el ciclo de vida del registro de avance: un rechazo o una invalidación pueden deberse a un error o corregirse con nueva evidencia. Quién puede reenviar también es supuesto propio: quien capturó el registro (Asistente/Comité o Director de Programa) y, si fue invalidado, el Director General. |
+| Prioridad | Importante |
+| Criterio de aceptación | Al reenviar un registro rechazado con nueva evidencia, o un registro invalidado, este vuelve a "en validación" y aparece de nuevo en la lista del Director de su programa. El reenvío queda en la bitácora. |
+| Relacionado con | RF-010, RF-013, RF-018, RF-021, RF-026 |
+ 
 ---
  
 ## 4. Requisitos no funcionales
@@ -446,9 +468,9 @@ Los requisitos RF-001, RF-002 y RF-013 (identificación, permisos por rol y bit�
 | ID | Nombre | Actores | Requisitos que realiza |
 |---|---|---|---|
 | CU-01 | Consultar avance de graduación | Estudiante | RF-003, RF-004, RF-005, RF-008 |
-| CU-02 | Registrar avance de un estudiante | Asistente/Comité, Director de Programa, Soy León | RF-006, RF-007, RF-008, RF-011, RF-017, RF-018, RF-020, RF-022 |
+| CU-02 | Registrar avance de un estudiante | Asistente/Comité, Director de Programa, Soy León | RF-006, RF-007, RF-008, RF-011, RF-017, RF-018, RF-020, RF-022, RF-027 |
 | CU-03 | Revisar evidencias de una actividad | Asistente/Comité | RF-018, RF-019 |
-| CU-04 | Validar actividades de un alumno | Director de Programa (Director General solo en el flujo alterno 6b) | RF-008, RF-009, RF-011, RF-016, RF-018, RF-020, RF-021 |
+| CU-04 | Validar actividades de un alumno | Director de Programa (Director General solo en el flujo alterno 6b) | RF-008, RF-009, RF-011, RF-016, RF-018, RF-020, RF-021, RF-026 |
 | CU-05 | Invalidar una aprobación | Director General | RF-010 |
 | CU-06 | Declarar apto para graduación a un estudiante | Director de Programa | RF-012 |
 | CU-07 | Recibir reporte semanal de avance | Director de Programa, Director General | RF-014, RF-023, RF-024 |
@@ -467,9 +489,9 @@ CU-06 se apoya en un supuesto propio: que el Director de Programa asigna el esta
 | Objetivo | Oficializar en el avance de un alumno de su programa las actividades grandes o acreditaciones de materias que están en validación. |
 | Precondición | El director está identificado con su rol y existe al menos una actividad de un alumno de su programa en validación. |
 | Escenario principal | 1. El director abre la lista de actividades en validación de su programa.<br>2. El sistema muestra solo las de alumnos de su programa, con la evidencia asociada.<br>3. El director elige una actividad y abre la ficha del alumno.<br>4. El director revisa la evidencia y los datos de la actividad.<br>5. El director valida la actividad.<br>6. El sistema verifica que el expediente no esté bloqueado.<br>7. El sistema marca la actividad como validada, la suma al avance validado del alumno y la quita de la lista.<br>8. El sistema registra en la bitácora quién validó, qué y cuándo. |
-| Flujos alternos | 1a. No hay actividades en validación: el sistema lo indica y el caso termina.<br>4a. La evidencia no basta: el director no valida y la actividad permanece en validación.<br>5a. La actividad es de un alumno de otro programa: el sistema rechaza la validación y no la registra.<br>6a. El expediente está bloqueado y no hay justificación: el sistema rechaza la validación.<br>6b. El expediente está bloqueado y el Director de Programa del alumno o el Director General autoriza con justificación por escrito: el sistema acepta, guarda la justificación en la bitácora y el ajuste aparece en el siguiente reporte semanal. |
+| Flujos alternos | 1a. No hay actividades en validación: el sistema lo indica y el caso termina.<br>4a. La evidencia no basta y el director aún no decide: no valida y la actividad permanece en validación.<br>4b. La evidencia no es válida: el director rechaza la actividad con una justificación; el sistema la marca como rechazada, la quita de la lista y lo registra en la bitácora.<br>5a. La actividad es de un alumno de otro programa: el sistema rechaza la validación y no la registra.<br>6a. El expediente está bloqueado y no hay justificación: el sistema rechaza la validación.<br>6b. El expediente está bloqueado y el Director de Programa del alumno o el Director General autoriza con justificación por escrito: el sistema acepta, guarda la justificación en la bitácora y el ajuste aparece en el siguiente reporte semanal. |
 | Postcondición | La actividad validada forma parte del avance validado del alumno, ya no aparece en la lista y la validación consta en la bitácora con usuario, fecha y hora. |
-| Requisitos que realiza | RF-002, RF-008, RF-009, RF-011, RF-013, RF-016, RF-018, RF-020, RF-021, RNF-SEG-001, RNF-CON-001 |
+| Requisitos que realiza | RF-002, RF-008, RF-009, RF-011, RF-013, RF-016, RF-018, RF-020, RF-021, RF-026, RNF-SEG-001, RNF-CON-001 |
  
 ### 5.3 Prototipo navegable
  
@@ -497,13 +519,13 @@ El prototipo recorre el caso de uso CU-04 de principio a fin y resuelve sus fluj
  
 ## 6. Trazabilidad
  
-La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagrama_clases.md`). La secuencia de CU-01 está en `docs/arch/diagrama_secuencia.md`.
+La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagrama_clases.md`). La secuencia de CU-01 está en `docs/arch/diagrama_secuencia.md` y el ciclo de vida de un registro de avance, en `docs/arch/diagrama_estados.md`.
  
 | Requisito | Origen | Caso de uso | Elemento del prototipo | Elemento de diseño |
 |---|---|---|---|---|
 | RF-001 | Visión | Todos (transversal) | P1 Inicio de sesión | `Usuario.verificarCredenciales()` |
 | RF-002 | Visión | Todos (transversal) | P8 Acceso denegado | `Usuario.puedeRealizar()`, `Rol` |
-| RF-003 | Visión | CU-01 | No incluido en el prototipo | `Expediente`, `RegistroAvance` (puntos, semestre) |
+| RF-003 | Visión | CU-01 | No incluido en el prototipo | `Expediente.calcularPuntosPorSemestre()`, `RegistroAvance` (puntos, semestre) |
 | RF-004 | Visión | CU-01 | No incluido en el prototipo (P5 solo muestra el avance actualizado, que es información derivada) | `Expediente.calcularPorcentaje()`, `CriterioGraduacion.calcularAporte()` (Strategy) |
 | RF-005 | Visión | CU-01 | No incluido en el prototipo | `Expediente.listarFaltantes()`, `CriterioGraduacion.estaCumplido()` |
 | RF-006 | Visión + entrevista | CU-02 | No incluido en el prototipo | `RegistroAvance.validarPuntos()`, `Actividad` |
@@ -526,6 +548,8 @@ La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagra
 | RF-023 | Entrevista + supuesto propio | CU-07 | No incluido en el prototipo | Sin clase propia en el diagrama de clases |
 | RF-024 | Entrevista | CU-07 | No incluido en el prototipo | `ReporteSemanal.ordenarPorRezago()`, `Programa` (avanceEsperado), `LineaReporte` |
 | RF-025 | Visión | No aplica: restricción asociada a RF-013 | P11 Bitácora (sin opciones de editar ni borrar) | `EntradaBitacora` (inmutable) |
+| RF-026 | Supuesto propio (diseño) | CU-04 | No incluido en el prototipo | `RegistroAvance.rechazar()`, `EstadoRegistro` (RECHAZADO) |
+| RF-027 | Supuesto propio (diseño) | CU-02 | No incluido en el prototipo | `RegistroAvance.reenviar()` |
  
 ---
  
@@ -546,6 +570,7 @@ Esta sección reúne los supuestos propios y los huecos abiertos que afectan reg
 | Quién valida la asistencia por un medio alterno. | RF-022 | Supuesto propio. |
 | Destinatarios exactos del correo con el reporte semanal. | RF-023 | Supuesto propio. |
 | Avance esperado por semestre de cada programa. | RF-024 | Sin este dato no se puede calcular el rezago: RF-024 no puede implementarse. |
+| Si el rechazo de una actividad exige justificación y quién puede reenviar a validación un registro rechazado o invalidado. | RF-026, RF-027 | Supuestos propios surgidos del diseño. |
 | Valores de los requisitos no funcionales: 1 minuto y 4 de 5 estudiantes, 30 segundos, 99% de disponibilidad, 24 horas de antigüedad, 3 segundos y 500 alumnos. | RNF-USA-001, RNF-USA-002, RNF-CON-001, RNF-CON-002, RNF-REN-001, RNF-REN-002 | Las métricas son supuesto propio. |
  
 ---
@@ -579,6 +604,7 @@ Esta sección reúne los supuestos propios y los huecos abiertos que afectan reg
 | 14/11/2026 | Sección 5 | RF-025 deja de ser transversal. CU-04 indica que el Director General solo interviene en el flujo alterno 6b y ya no realiza RF-004. Se corrigió la ruta del diagrama de casos de uso. | Observaciones RD-001, RD-002 y RD-003. |
 | 14/11/2026 | Sección 6 | Se agregó la columna "Elemento de diseño" y se ajustaron las filas de RF-004 y RF-025. | Conectar los requisitos con los diagramas de clases y de secuencia. |
 | 14/11/2026 | Sección 7 | Se creó la sección de aspectos pendientes de validación. | Observaciones RD-004 y RD-009. |
+| 15/11/2026 | RF-026, RF-027, CU-04 | Se agregaron el rechazo de una actividad en validación y el reenvío a validación. CU-04 gana el flujo alterno 4b (rechazo). Se actualizó la trazabilidad, incluida la operación de RF-003. | La máquina de estados del registro de avance mostró que faltaban el estado rechazado y la salida del estado invalidado. |
  
 ---
  
@@ -624,4 +650,3 @@ La revisión también permitió comprobar que los elementos principales del sist
 - [x] La tabla de trazabilidad está completa
 - [x] Mi dupla revisó el documento y su revisión está registrada
 - [x] Borré los ejemplos y las instrucciones en cursiva
- 
