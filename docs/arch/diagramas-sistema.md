@@ -54,7 +54,7 @@ flowchart TD
         acceso["Acceso y roles<br/>usuarios y permisos"]
         exp["Expediente y avance<br/>porcentaje y aptitud para graduarse"]
         val["Validación de actividades<br/>actividades y evidencia"]
-        rep["Reportes y avisos<br/>reporte semanal y notificaciones"]
+        rep["Reportes y avisos<br/>reporte semanal"]
         integ["Integración con Soy León<br/>Adapter"]
     end
 
@@ -68,7 +68,6 @@ flowchart TD
 
     val -->|pregunta el rol del usuario| acceso
     val -->|evento: actividad validada| exp
-    val -->|evento: actividad validada| rep
     integ -->|envía actividades y participantes| val
     integ -->|envía inscripción y asistencia| exp
     rep -->|solo lee el avance| exp
