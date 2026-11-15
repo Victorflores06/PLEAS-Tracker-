@@ -32,6 +32,9 @@ sequenceDiagram
     loop por cada criterio del programa
         Exp->>+Crit: estaCumplido(registros)
         Crit-->>-Exp: true o false
+
+    Web->>+Exp: calcularPuntosPorSemestre()
+    Exp-->>-Web: puntos por semestre
     end
     Exp-->>-Web: criterios por cumplir
 
