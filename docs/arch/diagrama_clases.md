@@ -1,4 +1,4 @@
-```mermaid
+ue```mermaid
 classDiagram
 direction TB
  
@@ -50,6 +50,7 @@ class Expediente {
     +estaBloqueado() bool
     +aceptarCambio(registro, justificacion) bool
     +alCambiarEstado(registro) void
+    +calcularPuntosPorSemestre() List~int~
 }
  
 class CriterioGraduacion {
@@ -203,7 +204,7 @@ ReporteSemanal "1" *-- "*" LineaReporte : contiene
 note for CriterioGraduacion "Strategy: Expediente solo pregunta, sin importar el tipo. TEA 8, Clase 4 de las opciones del programa, ADAI 1."
 note for Expediente "Apto solo con 100% (RF-012). El bloqueo no se guarda: se calcula con PeriodoAcademico. Con bloqueo, acepta cambios solo con justificacion (RF-016)."
 note for EntradaBitacora "Inmutable: se crea y no vuelve a cambiar (RF-025)."
-note for ReporteSemanal "Copia fija al generarse (RF-014 CA-4): por eso guarda LineaReporte y no apunta a Expediente."
+note for ReporteSemanal "Copia fija al generarse (RF-014, RF-016): por eso guarda LineaReporte y no apunta a Expediente."
 note for RegistroAvance "Observer: al validar o invalidar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
 
