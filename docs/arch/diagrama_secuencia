@@ -1,0 +1,37 @@
+```mermaid
+sequenceDiagram
+    %% El estudiante consulta su avance
+    %% Trazabilidad: RF-002, RF-003, RF-004, RF-005, RF-008
+ 
+    actor Alu as Estudiante
+    participant Web as App web
+    participant Usr as Usuario
+    participant Exp as Expediente
+    participant Crit as CriterioGraduacion
+ 
+    Alu->>Web: entra a ver su avance
+    Web->>+Usr: puedeRealizar(consultarAvance)
+    Usr-->>-Web: true
+ 
+    Note over Web,Exp: el expediente es el del estudiante identificado
+ 
+    Web->>+Exp: calcularPorcentaje()
+    loop por cada criterio del programa
+        Exp->>+Crit: calcularAporte(registros)
+        Crit-->>-Exp: aporte
+    end
+    Note right of Crit: Strategy: cada criterio responde segun su tipo (TEA, clase, proyecto, ADAI)
+    Exp-->>-Web: porcentaje de avance validado
+ 
+    Web->>+Exp: calcularAvanceEnValidacion()
+    Exp-->>-Web: avance en validacion
+ 
+    Web->>+Exp: listarFaltantes()
+    loop por cada criterio del programa
+        Exp->>+Crit: estaCumplido(registros)
+        Crit-->>-Exp: true o false
+    end
+    Exp-->>-Web: criterios por cumplir
+ 
+    Web-->>Alu: muestra porcentaje, avance en validacion y requisitos por cumplir
+```
