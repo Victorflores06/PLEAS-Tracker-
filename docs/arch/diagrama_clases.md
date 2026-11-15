@@ -125,6 +125,8 @@ class RegistroAvance {
     +determinarEstadoInicial() EstadoRegistro
     +validar(director, justificacion) void
     +invalidar(usuario, justificacion) void
+    +rechazar(director, justificacion) void
+    +reenviar(usuario) void
     +cuentaEnAvance() bool
     +suscribir(observador) void
     -notificar() void
