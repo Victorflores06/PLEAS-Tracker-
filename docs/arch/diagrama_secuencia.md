@@ -1,3 +1,4 @@
+## Diagrama de secuencia: el estudiante consulta su avance
 
 ```mermaid
 sequenceDiagram
@@ -18,10 +19,10 @@ sequenceDiagram
 
     Web->>+Exp: calcularPorcentaje()
     loop por cada criterio del programa
-        Exp->>Crit: calcularAporte(registros)
-        Crit-->>Exp: aporte
+        Exp->>+Crit: calcularAporte(registros)
+        Crit-->>-Exp: aporte
     end
-    Note right of Crit: Strategy: cada criterio responde segun su tipo (TEA, clase, proyecto, ADAI)
+    Note right of Crit: Strategy - cada criterio responde segun su tipo (TEA, clase, proyecto, ADAI)
     Exp-->>-Web: porcentaje de avance validado
 
     Web->>+Exp: calcularAvanceEnValidacion()
@@ -29,8 +30,8 @@ sequenceDiagram
 
     Web->>+Exp: listarFaltantes()
     loop por cada criterio del programa
-        Exp->>Crit: estaCumplido(registros)
-        Crit-->>Exp: true o false
+        Exp->>+Crit: estaCumplido(registros)
+        Crit-->>-Exp: true o false
     end
     Exp-->>-Web: criterios por cumplir
 
