@@ -7,14 +7,14 @@ flowchart TD
     est([Estudiante])
     dp([Director de programa])
     dg([Director general])
-    asi([Asistente])
+    asi([Asistente/Comité])
     sis[TrackerPLEAS]
     soy[Soy León]
 
     est -->|consulta su avance y requisitos pendientes| sis
     dp -->|valida actividades y registra avance| sis
     dg -->|ve indicadores globales y puede invalidar avance| sis
-    asi -->|apoya la operación del sistema| sis
+    asi -->|sube puntos y revisa evidencias| sis
     soy -->|entrega actividades, organizadores y participantes| sis
 
     style sis fill:#ff5d00,color:#fff
@@ -25,7 +25,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     est([Estudiante])
-    dir([Directores])
+    dir([Directores y Asistente/Comité])
 
     subgraph sistema[TrackerPLEAS]
         web["App web<br/>React"]
@@ -70,7 +70,6 @@ flowchart TD
     exp -->|registra en bitácora| acceso
     val -->|evento: actividad validada| exp
     integ -->|envía actividades y participantes| val
-    integ -->|envía inscripción y asistencia| exp
     rep -->|solo lee el avance| exp
     soy -->|datos en su propio formato| integ
 
