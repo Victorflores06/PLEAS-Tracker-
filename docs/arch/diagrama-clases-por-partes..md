@@ -5,8 +5,9 @@ Copia solo ese bloque, pegalo en mermaid.live y exporta la imagen (SVG o PNG) pa
 Las cajas en gris son contexto: solo muestran el nombre de la clase y sus detalles estan en otra parte.
 Si una parte se ve muy alta o muy ancha, cambia "direction LR" por "direction TB" (o al reves).
 
-```mermaid
+
 ##### PARTE 1 de 7 · MAPA GENERAL (solo nombres) #####
+```mermaid
 
 mermaid
 classDiagram
