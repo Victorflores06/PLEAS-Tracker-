@@ -19,6 +19,10 @@ class Usuario {
     +puedeRealizar(accion) bool
 }
 
+class Bitacora {
+    +registrar(usuario, accion, requisito) void
+}
+
 class EntradaBitacora {
     -accion: string
     -requisitoAfectado: string
@@ -199,16 +203,18 @@ Expediente ..|> ObservadorValidacion
 AdaptadorSoyLeon ..|> FuenteDeActividades
 FuenteDeActividades ..> Actividad : entrega
  
+Bitacora "1" *-- "*" EntradaBitacora : guarda
 EntradaBitacora "*" --> "1" Usuario : realizada por
 ReporteSemanal "*" --> "1" Programa : de
 ReporteSemanal "1" *-- "*" LineaReporte : contiene
  
 %% ---------- Notas ----------
-note for CriterioGraduacion "Strategy: Expediente solo pregunta, sin importar el tipo. TEA 8, Clase 4 de las opciones del programa, ADAI 1."
+note for CriterioGraduacion "Strategy: Expediente solo pregunta, sin importar el tipo. TEA 8, Clase 4 de las opciones del programa, Proyecto 1, ADAI 1."
 note for Expediente "Apto solo con 100% (RF-012). El bloqueo no se guarda: se calcula con PeriodoAcademico. Con bloqueo, acepta cambios solo con justificacion (RF-016)."
 note for EntradaBitacora "Inmutable: se crea y no vuelve a cambiar (RF-025)."
+note for Bitacora "Unica puerta para registrar quien hizo que y cuando (RF-013)."
 note for ReporteSemanal "Copia fija al generarse (RF-014, RF-016): por eso guarda LineaReporte y no apunta a Expediente."
-note for RegistroAvance "Observer: al validar o invalidar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
+note for RegistroAvance "Observer: al validar, rechazar, invalidar o reenviar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
 
 ```
