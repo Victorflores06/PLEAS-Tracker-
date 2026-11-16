@@ -32,7 +32,8 @@ Los diagramas están escritos en Mermaid y se ven directamente en GitHub.
 | [ADR-001 · Monolito modular](docs/arch/adr-001-monolito-modular.md) | Decisión de arquitectura: un solo programa con cinco módulos separados. |
 | [Diagramas de arquitectura](docs/arch/diagramas-sistema.md) | Contexto, contenedores y componentes del sistema (modelo C4, niveles 1 a 3). |
 | [Diagrama de clases](docs/arch/diagrama_clases.md) | Clases por módulo, con los patrones Strategy, Observer y Adapter. |
-| [Diagrama de secuencia](docs/arch/diagrama_secuencia.md) | El estudiante consulta su avance (CU-01). |
+| [Diagrama de secuencia · CU-04](docs/arch/diagrama_secuencia_cu04.md) | El director valida una actividad: el caso de uso principal. |
+| [Diagrama de secuencia · CU-01](docs/arch/diagrama_secuencia.md) | El estudiante consulta su avance. |
 | [Diagrama de máquina de estados](docs/arch/diagrama_estados.md) | Ciclo de vida de un registro de avance: en validación, validado, rechazado e invalidado. |
 
 El archivo [`docs/arch/diagramas.md`](docs/arch/diagramas.md) contiene ejemplos de práctica de Mermaid con un sistema de clínica veterinaria. No describe a TrackerPLEAS.
