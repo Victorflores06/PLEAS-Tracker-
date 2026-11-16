@@ -8,8 +8,6 @@ Si una parte se ve muy alta o muy ancha, cambia "direction LR" por "direction TB
 
 ##### PARTE 1 de 7 · MAPA GENERAL (solo nombres) #####
 ```mermaid
-
-mermaid
 classDiagram
 direction LR
 
