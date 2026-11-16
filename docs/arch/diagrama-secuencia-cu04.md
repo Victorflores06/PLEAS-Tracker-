@@ -11,6 +11,7 @@ sequenceDiagram
     participant Prog as Programa
     participant Reg as RegistroAvance
     participant Exp as Expediente
+    participant Bit as Bitacora
 
     Dir->>Web: valida una actividad en validacion
     Web->>+Usr: puedeRealizar(validarActividad)
@@ -28,8 +29,8 @@ sequenceDiagram
         Reg->>Reg: notificar()
         Reg->>Exp: alCambiarEstado(registro)
         Exp->>Exp: calcularPorcentaje()
+        Reg->>Bit: registrar(director, accion, requisito)
         Reg-->>Web: actividad validada
-        Note over Web,Reg: se crea una EntradaBitacora con quien valido, que y cuando (RF-013)
         Web-->>Dir: muestra la actividad validada y el avance actualizado
     else expediente bloqueado y sin justificacion
         Exp-->>Reg: false
