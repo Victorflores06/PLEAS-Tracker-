@@ -1,11 +1,5 @@
 DIAGRAMA DE CLASES POR PARTES (7 laminas)
 
-Como usarlo: cada parte empieza en la linea "classDiagram" y termina antes de la siguiente linea de ##### .
-Copia solo ese bloque, pegalo en mermaid.live y exporta la imagen (SVG o PNG) para la lamina.
-Las cajas en gris son contexto: solo muestran el nombre de la clase y sus detalles estan en otra parte.
-Si una parte se ve muy alta o muy ancha, cambia "direction LR" por "direction TB" (o al reves).
-
-
 ##### PARTE 1 de 7 · MAPA GENERAL (solo nombres) #####
 ```mermaid
 classDiagram
