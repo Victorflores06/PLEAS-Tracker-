@@ -519,7 +519,7 @@ El prototipo recorre el caso de uso CU-04 de principio a fin y resuelve sus fluj
  
 ## 6. Trazabilidad
  
-La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagrama_clases.md`). La secuencia de CU-01 está en `docs/arch/diagrama_secuencia.md` y el ciclo de vida de un registro de avance, en `docs/arch/diagrama_estados.md`.
+La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagrama_clases.md`). Las secuencias de CU-01 y de CU-04 están en `docs/arch/diagrama_secuencia.md` y `docs/arch/diagrama_secuencia_cu04.md`, y el ciclo de vida de un registro de avance, en `docs/arch/diagrama_estados.md`.
  
 | Requisito | Origen | Caso de uso | Elemento del prototipo | Elemento de diseño |
 |---|---|---|---|---|
@@ -535,7 +535,7 @@ La columna "Elemento de diseño" remite al diagrama de clases (`docs/arch/diagra
 | RF-010 | Visión | CU-05 | No incluido en el prototipo | `RegistroAvance.invalidar()` |
 | RF-011 | Entrevista | CU-02, CU-04 | P9 Expediente bloqueado | `PeriodoAcademico`, `Expediente.estaBloqueado()` |
 | RF-012 | Visión | CU-06 | No incluido en el prototipo | `Expediente.marcarApto()` |
-| RF-013 | Visión + entrevista | Todos (transversal) | P5 Validación registrada, P11 Bitácora | `EntradaBitacora` |
+| RF-013 | Visión + entrevista | Todos (transversal) | P5 Validación registrada, P11 Bitácora | `Bitacora.registrar()`, `EntradaBitacora` |
 | RF-014 | Entrevista | CU-07 | No incluido en el prototipo | `ReporteSemanal.generarPDF()`, `LineaReporte` |
 | RF-015 | Visión | CU-08 | No incluido en el prototipo | `Programa.calcularIndicador()` |
 | RF-016 | Entrevista | CU-04 | P10 Validación fuera de plazo | `Expediente.aceptarCambio()`, `RegistroAvance.validar()` con justificación |
@@ -605,6 +605,7 @@ Esta sección reúne los supuestos propios y los huecos abiertos que afectan reg
 | 14/11/2026 | Sección 6 | Se agregó la columna "Elemento de diseño" y se ajustaron las filas de RF-004 y RF-025. | Conectar los requisitos con los diagramas de clases y de secuencia. |
 | 14/11/2026 | Sección 7 | Se creó la sección de aspectos pendientes de validación. | Observaciones RD-004 y RD-009. |
 | 15/11/2026 | RF-026, RF-027, CU-04 | Se agregaron el rechazo de una actividad en validación y el reenvío a validación. CU-04 gana el flujo alterno 4b (rechazo). Se actualizó la trazabilidad, incluida la operación de RF-003. | La máquina de estados del registro de avance mostró que faltaban el estado rechazado y la salida del estado invalidado. |
+| 15/11/2026 | Sección 6 | Se agregó la secuencia de CU-04 y la clase `Bitacora` como elemento de diseño de RF-013. | Al dibujar la secuencia de CU-04 se vio que ninguna clase tenía la operación de registrar en la bitácora. |
  
 ---
  
