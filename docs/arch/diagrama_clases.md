@@ -15,14 +15,14 @@ class Usuario {
     -nombreUsuario: string
     -contrasena: string
     -rol: Rol
-    +verificarCredenciales(contrasena) bool
-    +puedeRealizar(accion) bool
+    +verificarCredenciales(contrasena: string) bool
+    +puedeRealizar(accion: string) bool
 }
-
+ 
 class Bitacora {
-    +registrar(usuario, accion, requisito) void
+    +registrar(usuario: Usuario, accion: string, requisito: string) void
 }
-
+ 
 class EntradaBitacora {
     -accion: string
     -requisitoAfectado: string
@@ -41,7 +41,7 @@ class Estudiante {
 class Programa {
     -nombre: string
     -avanceEsperado: List~double~
-    +perteneceADirector(usuario) bool
+    +perteneceADirector(usuario: Usuario) bool
     +calcularIndicador() double
 }
  
@@ -52,8 +52,8 @@ class Expediente {
     +listarFaltantes() List~CriterioGraduacion~
     +marcarApto() bool
     +estaBloqueado() bool
-    +aceptarCambio(registro, justificacion) bool
-    +alCambiarEstado(registro) void
+    +aceptarCambio(registro: RegistroAvance, justificacion: string) bool
+    +alCambiarEstado(registro: RegistroAvance) void
     +calcularPuntosPorSemestre() List~int~
 }
  
@@ -62,37 +62,37 @@ class CriterioGraduacion {
     -nombre: string
     -cantidadRequerida: int
     -esImportante: bool
-    +estaCumplido(registros)* bool
-    +calcularAporte(registros)* double
+    +estaCumplido(registros: List~RegistroAvance~)* bool
+    +calcularAporte(registros: List~RegistroAvance~)* double
     +requiereValidacion() bool
 }
  
 class CriterioTEA {
-    +estaCumplido(registros) bool
-    +calcularAporte(registros) double
+    +estaCumplido(registros: List~RegistroAvance~) bool
+    +calcularAporte(registros: List~RegistroAvance~) double
 }
  
 class CriterioClase {
     -opcionesDelPrograma: List~string~
-    +estaCumplido(registros) bool
-    +calcularAporte(registros) double
+    +estaCumplido(registros: List~RegistroAvance~) bool
+    +calcularAporte(registros: List~RegistroAvance~) double
 }
  
 class CriterioProyecto {
-    +estaCumplido(registros) bool
-    +calcularAporte(registros) double
+    +estaCumplido(registros: List~RegistroAvance~) bool
+    +calcularAporte(registros: List~RegistroAvance~) double
 }
  
 class CriterioADAI {
-    +estaCumplido(registros) bool
-    +calcularAporte(registros) double
+    +estaCumplido(registros: List~RegistroAvance~) bool
+    +calcularAporte(registros: List~RegistroAvance~) double
 }
  
 class PeriodoAcademico {
     -tipo: string
     -fechaFinIntersemestrales: Date
     +calcularFechaBloqueo() Date
-    +estaAbierto(fecha) bool
+    +estaAbierto(fecha: Date) bool
 }
  
 %% ---------- Modulo: Validacion de actividades ----------
@@ -101,7 +101,7 @@ class Actividad {
     -grande: bool
     -grupoOrganizador: string
     -participantes: List~string~
-    +incluyeParticipante(estudiante) bool
+    +incluyeParticipante(estudiante: Estudiante) bool
     +esGrande() bool
 }
  
@@ -115,7 +115,7 @@ class EstadoRegistro {
  
 class ObservadorValidacion {
     <<interface>>
-    +alCambiarEstado(registro) void
+    +alCambiarEstado(registro: RegistroAvance) void
 }
  
 class RegistroAvance {
@@ -127,12 +127,12 @@ class RegistroAvance {
     -observadores: List~ObservadorValidacion~
     +validarPuntos() bool
     +determinarEstadoInicial() EstadoRegistro
-    +validar(director, justificacion) void
-    +invalidar(usuario, justificacion) void
-    +rechazar(director, justificacion) void
-    +reenviar(usuario) void
+    +validar(director: Usuario, justificacion: string) void
+    +invalidar(usuario: Usuario, justificacion: string) void
+    +rechazar(director: Usuario, justificacion: string) void
+    +reenviar(usuario: Usuario) void
     +cuentaEnAvance() bool
-    +suscribir(observador) void
+    +suscribir(observador: ObservadorValidacion) void
     -notificar() void
 }
  
@@ -141,20 +141,20 @@ class Evidencia {
     -fechaCarga: Date
     -fechaRevision: Date
     -resultado: string
-    +registrarRevision(revisor, resultado) void
+    +registrarRevision(revisor: Usuario, resultado: string) void
 }
  
 %% ---------- Modulo: Integracion con Soy Leon ----------
 class FuenteDeActividades {
     <<interface>>
     +obtenerActividades() List~Actividad~
-    +obtenerParticipantes(actividad) List~string~
+    +obtenerParticipantes(actividad: Actividad) List~string~
 }
  
 class AdaptadorSoyLeon {
     +obtenerActividades() List~Actividad~
-    +obtenerParticipantes(actividad) List~string~
-    -traducirFormato(datosSoyLeon) Actividad
+    +obtenerParticipantes(actividad: Actividad) List~string~
+    -traducirFormato(datosSoyLeon: string) Actividad
 }
  
 %% ---------- Modulo: Reportes y avisos ----------
@@ -216,5 +216,3 @@ note for Bitacora "Unica puerta para registrar quien hizo que y cuando (RF-013).
 note for ReporteSemanal "Copia fija al generarse (RF-014, RF-016): por eso guarda LineaReporte y no apunta a Expediente."
 note for RegistroAvance "Observer: al validar, rechazar, invalidar o reenviar avisa a sus observadores sin saber cuantos son. medioAsistencia: RESUMEN_ACTIVIDAD o INSCRIPCION."
 note for AdaptadorSoyLeon "Adapter: traduce el formato de Soy Leon, que no se puede modificar, a Actividad. Si Soy Leon cambia, solo cambia esta clase."
-
-```
