@@ -29,8 +29,8 @@ stateDiagram-v2
         Se muestra aparte como avance en validacion.
     end note
 ```
-## Diagrama de máquina de estados: RegistroAvance (Horizontal)
-
+## Diagrama de máquina de estados: RegistroAvance
+ 
 ```mermaid
 stateDiagram-v2
     %% Ciclo de vida de un RegistroAvance (modulo Validacion de actividades)
@@ -38,18 +38,18 @@ stateDiagram-v2
     %% Trazabilidad: RF-006, RF-007, RF-008, RF-009, RF-010, RF-011, RF-016, RF-026, RF-027
     direction LR
     state requiere <<choice>>
-
-    [*] --> requiere: registrar
+ 
+    [*] --> requiere: / determinarEstadoInicial()
     requiere --> EnValidacion: [requiere validacion]
     requiere --> Validado: [no requiere validacion] / notificar
-
+ 
     EnValidacion --> Validado: validar [director del programa, con justificacion si hay bloqueo] / notificar
     EnValidacion --> Rechazado: rechazar [director del programa] / notificar
-
+ 
     Validado --> Invalidado: invalidar [Director General] / notificar
-
+ 
     Rechazado --> EnValidacion: reenviar [con nueva evidencia]
     Invalidado --> EnValidacion: reenviar
 ```
-
+ 
 No hay estado final: un registro de avance no termina, permanece en el expediente del estudiante. Solo el estado Validado cuenta en el avance; En validación se muestra aparte.
